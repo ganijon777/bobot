@@ -235,7 +235,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  if(messageText.match('menu')){
+  if(messageText && messageText.match('menu')){
     console.log("Received menu for message %s and app %d with metadata %s", 
       messageId, appId, metadata);
       sendGenericMessage(senderID);
