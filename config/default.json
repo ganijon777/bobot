@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "92e7f111c10243c181360855c9914bbd",
+    "pageAccessToken": "EAAQty3CwqVMBAOFiQV4Q3qDc02hwAkWyaToGgtFSKiDHH9cZBpZAFxyghLbdCNEjEZAn9OZBsshzunrSD4hq4W7Q2e5KZBZAd8ddSyHF4zyRPIfsUroZAG8eT9FGvP1MbGNCzldfcLJQLhB6pnCn5w1F7NZBC4kgd0NohyciFGdoVAZDZD",
+    "validationToken": "my_secret_is_validation_token",
+    "serverURL": "https://ibobot.herokuapp.com/"
 }
