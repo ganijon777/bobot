@@ -239,8 +239,9 @@ function receivedMessage(event) {
     console.log("Received menu for message %s and app %d with metadata %s", 
       messageId, appId, metadata);
       sendGenericMessage(senderID);
-    return;
-  } else if (isEcho) {
+  } 
+  
+  if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", 
       messageId, appId, metadata);
