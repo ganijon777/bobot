@@ -235,7 +235,12 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  if (isEcho) {
+  if(messageText.match('menu')){
+    console.log("Received menu for message %s and app %d with metadata %s", 
+      messageId, appId, metadata);
+      sendGenericMessage(senderID);
+    return;
+  } else if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", 
       messageId, appId, metadata);
