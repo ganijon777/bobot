@@ -235,12 +235,6 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
-  if(messageText && messageText.match('menu')){
-    console.log("Received menu for message %s and app %d with metadata %s", 
-      messageId, appId, metadata);
-      sendGenericMessage(senderID);
-  } 
-  
   if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s", 
@@ -261,6 +255,10 @@ function receivedMessage(event) {
     // keywords and send back the corresponding example. Otherwise, just echo
     // the text we received.
     switch (messageText) {
+      case 'menu':
+        sendMenuMessage(senderID);
+        break;
+
       case 'image':
         sendImageMessage(senderID);
         break;
@@ -408,6 +406,31 @@ function receivedAccountLink(event) {
 
   console.log("Received account link event with for user %d with status %s " +
     "and auth code %s ", senderID, status, authCode);
+}
+
+/*
+ * Send a Structured Message (Menu Message type) using the Send API.
+ *
+ */
+function sendMenuMessage(recipientId) {
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      type: "menu",
+      question:"What would you like to know?",
+      options:[ 
+        "1.Program Description", 
+        "2.Required Documents",
+        "3.Student Status",
+        "4.Contact us",
+      ]
+    }
+  };
+    
+  callSendAPI(messageData);
 }
 
 /*
